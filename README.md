@@ -89,6 +89,33 @@ The `opencode.json` is pre-configured for this workspace. OpenCode will discover
 - `reflect` — run self-improvement analysis.
 - `update_memory_confidence` — reinforce or penalize a memory.
 
+## Example workflow
+
+After connecting the server to your MCP client, it will start learning as you work:
+
+1. **Store a preference**
+   ```json
+   { "tool": "remember", "content": "I prefer flat error handling over throwing." }
+   ```
+
+2. **Log a tool outcome**
+   ```json
+   { "tool": "remember_tool_outcome",
+     "arguments": { "tool_name": "grep_search", "task_summary": "Find helper usages", "success": true, "duration_ms": 120, "tokens_used": 200 } }
+   ```
+
+3. **Recall when needed**
+   ```json
+   { "tool": "recall", "arguments": { "query": "error handling preference", "limit": 5 } }
+   ```
+
+4. **Run reflection periodically**
+   ```json
+   { "tool": "reflect" }
+   ```
+
+The server also exposes a `memory-context` prompt and three resources (`memory://preferences`, `memory://recent`, `memory://stats`) that MCP clients can pull into context.
+
 ## Architecture
 
 ```
@@ -98,7 +125,8 @@ src/
 ├── config.ts             # Configuration and paths
 ├── types.ts              # Shared types and Zod schemas
 ├── db/
-│   ├── schema.ts         # SQLite schema
+│   ├── schema.ts         # SQLite schema with versioned migrations
+│   ├── embeddings.ts     # Local hash-based or OpenAI embeddings
 │   └── memory-store.ts   # CRUD, search, embeddings, graph persistence
 ├── graph/
 │   └── knowledge-graph.ts # Entity/relation extraction and graph queries
@@ -117,6 +145,20 @@ npm run dev        # run with tsx
 npm run build      # compile TypeScript
 npm run inspector  # test with MCP inspector
 ```
+
+## Testing
+
+```bash
+npm test           # runs full-test + stress-test + platform-check
+
+# Individual suites
+bash scripts/smoke-test.sh
+bash scripts/full-test.sh
+bash scripts/stress-test.sh
+bash scripts/platform-check.sh
+```
+
+A GitHub Actions CI workflow is included under `.github/workflows/ci.yml` and tests against Node 18/20/22 on Ubuntu, macOS, and Windows.
 
 ## License
 

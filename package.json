@@ -12,7 +12,8 @@
     "dev": "tsx src/index.ts",
     "start": "node dist/index.js",
     "inspector": "npx @modelcontextprotocol/inspector node dist/index.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "bash scripts/full-test.sh && bash scripts/stress-test.sh && bash scripts/platform-check.sh"
   },
   "keywords": [
     "mcp",
