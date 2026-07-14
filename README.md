@@ -158,7 +158,7 @@ bash scripts/stress-test.sh
 bash scripts/platform-check.sh
 ```
 
-A GitHub Actions CI workflow is included under `.github/workflows/ci.yml` and tests against Node 18/20/22 on Ubuntu, macOS, and Windows.
+A GitHub Actions CI workflow is included under `.github/workflows/ci.yml`. Last updated: July 14, 2026.
 
 ## License
 
