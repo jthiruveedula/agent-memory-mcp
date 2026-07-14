@@ -20,6 +20,8 @@ npm run build
 node dist/index.js
 ```
 
+📖 **Full usage guide:** [https://jthiruveedula.github.io/agent-memory-mcp/](https://jthiruveedula.github.io/agent-memory-mcp/)
+
 ## Platform Setup
 
 ### VS Code (GitHub Copilot)

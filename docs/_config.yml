@@ -1,0 +1,13 @@
+title: Agent Memory MCP
+description: Self-improving agent memory server with knowledge graph, preference learning, and tool recommendations.
+baseurl: /agent-memory-mcp
+url: https://jthiruveedula.github.io
+theme: minima
+markdown: kramdown
+kramdown:
+  input: GFM
+plugins:
+  - jekyll-feed
+exclude:
+  - Gemfile
+  - Gemfile.lock
