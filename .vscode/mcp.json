@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "agent-memory": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${workspaceFolder}/dist/index.js"]
+    }
+  }
+}
