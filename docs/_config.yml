@@ -6,8 +6,29 @@ theme: minima
 markdown: kramdown
 kramdown:
   input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    line_numbers: false
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 exclude:
   - Gemfile
   - Gemfile.lock
+  - node_modules
+  - vendor
+  - scripts
+  - src
+  - dist
+  - .github
+  - .vscode
+  - .claude
+  - .cursor
+  - opencode.json
+  - CLAUDE.md
+  - README.md
+  - package.json
+  - package-lock.json
+  - tsconfig.json
+  - .gitignore
+  - LICENSE
