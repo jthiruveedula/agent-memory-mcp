@@ -32,8 +32,10 @@
     "zod": "^3.25.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^22.15.0",
+    "http-server": "^14.1.1",
     "tsx": "^4.19.0",
     "typescript": "^5.8.0"
   },

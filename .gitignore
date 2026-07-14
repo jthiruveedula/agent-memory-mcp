@@ -10,3 +10,8 @@ coverage/
 *.db-shm
 tmp/
 .vscode/settings.json
+
+# Playwright test artifacts
+test-results/
+playwright-report/
+playwright/.cache/
